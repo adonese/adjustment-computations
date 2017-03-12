@@ -1,0 +1,76 @@
+\documentclass[]{scrartcl}
+
+%opening
+\title{Assignment 2}
+\author{Adjustment Computations}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\maketitle
+
+\section*{Notes About the assignment}
+Generally your assignments would consist of two sections. You have practice problems that you need to solve by your hands--that will help you understand the materials even better. You also have programming problems, where you need to build a program that solves specific problem. Programming assignments are very important, in practice you often end up having observations that cannot be solved by hands.
+
+Please, only submit your work! Do not cheat! I've developed a very buggy algorithm to compare your works.
+
+\section{Problem 1}
+Compute the most probable values (MPV) for X, Y using the method of least squares.
+\begin{eqnarray}
+\label{eqn:1}
+X + 2Y &= 10.5\\
+2X - 3Y &= 5.5\\
+2X - Y &= 10.0
+\end{eqnarray}
+
+solve this problem using
+\begin{itemize}
+	\item The matrix method (with your calculator, not MATLAB)
+	\item By solving the equations simultaneously (reduce the equations in \eqref{eqn:1} to 2, using Least squares)
+\end{itemize}
+
+\section{Problem 2}
+This problem might be a little bit harder.\\
+Using the method of least squares, compute the most probable values (MPV) for the three angles observed to close the horizon at station Red?
+\\
+The angles observed values, and their standard deviation (or, standard error) are as follows
+
+\begin{table}[]
+	\centering
+	\label{table:table-1}
+	\begin{tabular}{@{}lll@{}}
+		\toprule
+		id & observation [d,m,s]& STD [sec]\\
+		\midrule
+		1 & \ang{114; 23; 05} & $\pm 2.5$\\
+		2 & \ang{138; 17; 59} & $\pm 1.5$\\
+		3 & \ang{107; 19; 03} & $\pm 4.9$\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\paragraph{HINT.}Two hints, well this is a \textit{weighted} least squares problem! It is not very different from the standard LS solution, well the standard LS solution is as follows,
+
+\begin{eqnarray}
+E = (X^TX)^{-1}(X^TY)
+\end{eqnarray}
+The weighted solution is as follows,
+\begin{eqnarray}
+E = (X^TWX)^{-1}(X^TWY)
+\end{eqnarray}
+Where $E$ is the error vector (?), $W$ is the weight vector, $X$ is the coefficients vector. $Y$ corresponds to the constant term.
+Again, the notations might be somewhat messy, but this basically because least squares are used everywhere. So, each community are using their own notations for least squares.
+\paragraph{HINT 2.}To solve this problem you need to remember that for the sum of the angles should be equal to 360. The weights are computed using this equation
+\begin{equation}
+	w_i = \frac{1}{\sigma^2_i}
+\end{equation}
+where $\sigma^2_i$ is the $i^{th}$ standard deviation.
+\\
+You can solve this problem using any least squares method you want. BONUS points will be given for those who will solve it using several methods.
+
+\section{Submission}
+For your submission, would you please upload your work on this website \href{https://www.gradescope.com}{https://www.gradescope.com}. You need to use \textbf{9VYXEM} for the course code.
+\end{document}

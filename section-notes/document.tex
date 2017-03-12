@@ -1,0 +1,146 @@
+\documentclass[]{scrartcl}
+
+%opening
+\title{Assignment 2}
+\author{Adjustment Computations}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\maketitle
+
+\section{Problem 2}
+This problem might be a little bit harder.\\
+Using the method of least squares, compute the most probable values (MPV) for the three angles observed to close the horizon at station Red?
+\\
+The angles observed values, and their standard deviation (or, standard error) are as follows
+
+\begin{table}[]
+	\centering
+	\label{table:table-1}
+	\begin{tabular}{@{}lll@{}}
+		\toprule
+		id & observation [d,m,s]& STD [sec]\\
+		\midrule
+		1 & \ang{114; 23; 05} & $\pm 2.5$\\
+		2 & \ang{138; 17; 59} & $\pm 1.5$\\
+		3 & \ang{107; 19; 03} & $\pm 4.9$\\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\paragraph{HINT.}Two hints, well this is a \textit{weighted} least squares problem! It is not very different from the standard LS solution, well the standard LS solution is as follows,
+
+\begin{eqnarray}
+E = (X^TX)^{-1}(X^TY)
+\end{eqnarray}
+The weighted solution is as follows,
+\begin{eqnarray}
+E = (X^TWX)^{-1}(X^TWY)
+\end{eqnarray}
+Where $E$ is the error vector (?), $W$ is the weight vector, $X$ is the coefficients vector. $Y$ corresponds to the constant term.
+Again, the notations might be somewhat messy, but this basically because least squares are used everywhere. So, each community are using their own notations for least squares.
+\paragraph{HINT 2.}To solve this problem you need to remember that for the sum of the angles should be equal to 360. The weights are computed using this equation
+\begin{equation}
+	w_i = \frac{1}{\sigma^2_i}
+\end{equation}
+where $\sigma^2_i$ is the $i^{th}$ standard deviation.
+\\
+You can solve this problem using any least squares method you want. BONUS points will be given for those who will solve it using several methods.
+
+\paragraph{A lot of you have complained about this problem.}While I thought that I had quite illustrated it, but you still seemed to be lost.\\
+In least squares, we are trying to fit the errors into some geometrical constraint. In this case our constraint is that the sum of the three angles should equal to zero (Is that clear?). If it is not, remember that we are computing angles in the horizon, so they should match to 360 degree.
+\\
+Steps for performing least squares solution (From Ghilani notes on Adjustment Computations)
+\begin{itemize}
+	\item Remove large systematic errors
+	\item Remove instrumental errors with proper fields procedures
+	\item Compute the standard deviations
+	\item Create and solve systems of equations (might be linear, on non-linear as we shall see soon)
+\end{itemize}
+In our case we will assume that \textit{all} systematic and instruments errors have been removed to only left with random errors. In this example, the standard deviation is also computed for you, so we only need to create our equations and start solving them. Before I dive into solving this problem, I will give some advises on solving least squares (or any mathematical problem). The goal is to solve this problem, and you need to solve it correctly. So, do not get rush and directly start to write down the answers. You will probably find something wrong, and then you need to rewrite your solution again. That takes a lot of time.
+\\
+Steps for solving this problem, and any problem of its kind (aka, algorithm for solving this problem)
+\begin{itemize}
+	\item Define our geometric constraints. What are the geometrical constraints for this problem? Hence the horizon was closed (reread the problem again!), that means the angles should sum to \ang{360}.
+	\item Will first let us compute the mis-closure i.e., the difference between the sum of angles and 360 (our geometrical constraint)
+	\begin{equation}
+	m = (a_1 + a_2 + a_3) - 360
+	\end{equation}
+	where $m$ is the mis-closure, $a_1,a_2,a_3$ are the angles. If $m=0$, then we are done here! There is no error to adjust. However, in practical we now that there are always errors. Because the error can be in any of these angles, their values will are actually
+	\begin{eqnarray}
+	\label{eqn:observations}
+	a_1 &= \ang{114; 23; 05} + \epsilon_1\\
+	a_2 &= \ang{138; 17; 59} + \epsilon_2\\
+	a_3 &= \ang{107; 19; 03} + \epsilon_3
+	\end{eqnarray}
+	These equations cannot be solved in this form. We need to add a constraint to solve them (remember from the section that I told you about least squares being an optimization problem?). That condition is very simple.
+	
+	\begin{eqnarray}
+	\label{eqn:1}
+	a_1 + a_2 + a_3 = \ang{360},
+	\end{eqnarray}
+	We can rearrange Eqn. \eqref{eqn:1}, to be like this
+	\begin{eqnarray}
+		\label{eqn:2}
+		a_3 = \ang{360} - ( a_1 + a_2).
+	\end{eqnarray}
+	The choice of $a_3$ is arbitrary, you can choose any angle you like, the solution will be the same.
+	\\
+	Now plugging Eqn. \eqref{eqn:2} into Eqn. \eqref{eqn:observations} will result in
+	\begin{eqnarray}
+	\label{eqn:3}
+		a_1 &= \ang{114; 23; 05} + \epsilon_1\\
+		a_2 &= \ang{138; 17; 59} + \epsilon_2\\
+		\ang{360} - (a_1 + a_2) &= \ang{107; 19; 03} + \epsilon_3,
+	\end{eqnarray}
+	Rearranging Eqn. \eqref{eqn:3} yields,
+	\begin{eqnarray}
+	\label{eqn:4}
+		a_1 &= \ang{114; 23; 05} + \epsilon_1\\
+		a_2 &= \ang{138; 17; 59} + \epsilon_2\\
+		-(a_1 + a_2) &= \ang{107; 19; 03} - \ang{360}  + \epsilon_3.
+	\end{eqnarray}
+	\item Create and solve system of equations. You can solve this problem by taking the derivatives of the sum of the squared error, or you can solve it very simply using matrices notations.
+	\begin{equation}
+		X = (A^TA)^{-1}A^TL,
+	\end{equation}
+	or, in the weighted case,
+		\begin{equation}
+		\label{eqn:weighted}
+		X = (A^TWA)^{-1}A^TWL,
+		\end{equation}
+		where $A$ is the design matrix (aka matrix of the coefficients), $L$ is the constants matrix, $W$ is the weight matrix. The weights are the inverse of the standard deviations i.e.,
+		\begin{eqnarray}
+		w_i = \frac{1}{\sigma^2}.
+		\end{eqnarray}
+		The weights are $(n \times n)$ \textit{diagonal} matrix.
+		\begin{equation}
+			W = \begin{bmatrix}
+				\frac{1}{2.5^2} & 0 & 0\\
+				0 & \frac{1}{1.5^2} & 0\\
+				0 & 0 & \frac{1}{4.9^2}
+			\end{bmatrix}
+		\end{equation}
+		\item We are done here! Just substitute in Eq. \eqref{eqn:weighted} with the suitable values and you will find that you have solved the problem. Notice that, $A$ (design matrix), the values should be like the following. For each equation in Eq. \eqref{eqn:4}, the first column of matrix $A$ is filled by the $a_1$ coefficients, the second column is filled by the $a_2$ coefficients. In the first equation in Eq. \eqref{eqn:4}, we only have values for $a_1$ ($a_2$), the coefficients of $a_2$ is just 0. Similarly, for equation two in Eq. \eqref{eqn:4}, the coefficients of $a_1$ is also zero. In equation three in Eq. \eqref{eqn:4}, we have coefficients for $a_1, a_2$, they are just (-1,-1).
+		\begin{equation}
+		A = 
+		\begin{bmatrix}
+		1 & 0\\
+		0 & 1\\
+		-1 & -1
+		\end{bmatrix}
+		\end{equation}
+\end{itemize}
+
+
+I hope by now you should all able to understand what is going on, and most importantly how to to know how to solve such problems. Notice that, this problem is most suited for ``conditional equations" type, and indeed it is much easier to solve it using the procedure of conditional equations.
+\\
+\paragraph{Solve this problem by equations i.e., taking the derivative of the sum of the squared errors.}
+
+\section{Submission}
+For your submission, would you please upload your work on this website \href{https://www.gradescope.com}{https://www.gradescope.com}. You need to use \textbf{9VYXEM} for the course code.
+\end{document}

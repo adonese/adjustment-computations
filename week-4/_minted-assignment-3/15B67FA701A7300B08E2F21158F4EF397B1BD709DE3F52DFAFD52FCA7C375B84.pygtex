@@ -1,0 +1,7 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function}\PYG{+w}{ }residuals \PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{compute\PYGZus{}residuals}\PYG{p}{(}A, X, L\PYG{p}{)}
+\PYG{c}{\PYGZpc{} This function computes the residual of a least squares adjutment.}
+
+\PYG{n}{your} \PYG{n}{code} \PYG{n}{goes} \PYG{n}{here}\PYG{c}{...}
+\PYG{k}{end}
+\end{Verbatim}

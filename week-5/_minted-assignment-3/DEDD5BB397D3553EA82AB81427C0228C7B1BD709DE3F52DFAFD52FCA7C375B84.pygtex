@@ -1,0 +1,13 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k}{function}\PYG{+w}{ }deg \PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{dms2deg}\PYG{p}{(}a\PYG{p}{)}
+\PYG{c}{\PYGZpc{} dms2deg(a)}
+\PYG{c}{\PYGZpc{} dms2deg([12, 21 , 42])}
+\PYG{c}{\PYGZpc{} ans = 12.362}
+\PYG{c}{\PYGZpc{} Inputs:}
+\PYG{c}{\PYGZpc{} a: is the angle in a vector form. (n,1) e.g.,}
+\PYG{c}{\PYGZpc{} a = [12, 21, 42]}
+\PYG{c}{\PYGZpc{} Output:}
+\PYG{c}{\PYGZpc{} deg =  12.362}
+\PYG{n}{your} \PYG{n}{code} \PYG{n}{goes} \PYG{n}{here}\PYG{c}{...}
+\PYG{k}{end}
+\end{Verbatim}

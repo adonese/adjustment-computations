@@ -1,0 +1,69 @@
+\documentclass[]{scrartcl}
+
+%opening
+\title{Assignment 3}
+\author{Adjustment Computations}
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage{hyperref}
+\usepackage{minted}
+
+\begin{document}
+
+\maketitle
+
+\section*{Notes About the assignment}
+Generally your assignments would consist of two sections. You have practice problems that you need to solve by your hands--that will help you understand the materials even better. You also have programming problems, where you need to build a program that solves specific problem. Programming assignments are very important, in practice you often end up having observations that cannot be solved by hands.
+
+Please, only submit your work! Do not cheat! I've developed a very buggy algorithm to compare your works.
+\\
+Last note, you need to send me your submission via (gradescope, preferably, or to my email. I will not accept \textit{any} handwritten submissions.)
+
+\section{General Problems}
+\paragraph{Problem 1.}
+Eight blocks of a main street are to be reconstructed. The existing street consists of short segments as tabulated in the traverse survey data below. Assuming coordinates of $X$ = 1000.0, and $Y$ = 1000.0 and the azimuth of $AB$ is \ang{90}. 
+\begin{table}[]
+	\centering
+	\label{table:table-1}
+	\begin{tabular}{@{}llll@{}}
+		\toprule
+		\emph{Course} & \emph{Length}[FT]  & \emph{Station} & \emph{Angle to right}\\
+		\midrule
+		AB & 735.7 & B & \ang{180;17;}\\
+		BC & 464.8 & C & \ang{179;51;}\\
+		CD & 503.1 & D & \ang{179;28;}\\
+		DE & 820.0 & E & \ang{180;33;}\\
+		EF & 917.3 & F & \ang{179;10;}\\
+		FG & 329.8 & G & \ang{179;59;}\\
+		GH & 287.4 & H & \ang{179;59;}\\
+		HI & 345.9 &  & \\
+		\bottomrule
+	\end{tabular}
+\end{table}
+
+\paragraph{Compute.}
+\begin{enumerate}
+	\item Develop a program to solve this problem. I will not accept 
+	\item define a new straight alignment for a reconstructed street passing through this area.
+	\item Compute the slope and the azimuth of the line.
+	\item Plot the old alignment, and the updated one.
+\end{enumerate}
+
+
+\paragraph{Problem 2.}
+Develop an a program to compute the residuals.
+
+\begin{minted}{matlab}
+function residuals = compute_residuals(A, X, L)
+% This function computes the residual of a least squares adjutment.
+
+your code goes here...
+end
+\end{minted}
+
+\section{Extra problems}
+\paragraph{Write a GUI program to solve some adjustment problems.}Your task is to write a graphical user interface that can solves some adjustment problem. If you need any help just ask me.
+\section{Submission}
+For your submission, would you please upload your work on this website \href{https://www.gradescope.com}{https://www.gradescope.com}. You need to use \textbf{9VYXEM} for the course code.
+\end{document}

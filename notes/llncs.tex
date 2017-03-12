@@ -1,0 +1,99 @@
+% This is LLNCS.DEM the demonstration file of
+% the LaTeX macro package from Springer-Verlag
+% for Lecture Notes in Computer Science,
+% version 2.4 for LaTeX2e as of 16. April 2010
+%
+\documentclass{llncs}
+%
+\usepackage{amsmath}
+\usepackage{makeidx}  % allows for indexgeneration
+%
+\begin{document}
+%
+\frontmatter          % for the preliminaries
+%
+\pagestyle{headings}  % switches on printing of running heads
+\addtocmark{Hamiltonian Mechanics} % additional mark in the TOC
+%
+\chapter*{Preface}
+%
+This textbook is intended for use by students of physics, physical
+chemistry, and theoretical chemistry. The reader is presumed to have a
+basic knowledge of atomic and quantum physics at the level provided, for
+example, by the first few chapters in our book {\it The Physics of Atoms
+and Quanta}. The student of physics will find here material which should
+be included in the basic education of every physicist. This book should
+furthermore allow students to acquire an appreciation of the breadth and
+variety within the field of molecular physics and its future as a
+fascinating area of research.
+
+For the student of chemistry, the concepts introduced in this book will
+provide a theoretical framework for that entire field of study. With the
+help of these concepts, it is at least in principle possible to reduce
+the enormous body of empirical chemical knowledge to a few basic
+principles: those of quantum mechanics. In addition, modern physical
+methods whose fundamentals are introduced here are becoming increasingly
+important in chemistry and now represent indispensable tools for the
+chemist. As examples, we might mention the structural analysis of
+complex organic compounds, spectroscopic investigation of very rapid
+reaction processes or, as a practical application, the remote detection
+of pollutants in the air.
+
+\vspace{1cm}
+\begin{flushright}\noindent
+April 1995\hfill Walter Olthoff\\
+Program Chair\\
+ECOOP'95
+\end{flushright}
+%
+
+\chapter{Least Squares for nonlinear equations}
+
+\section{Something}
+Sorry for the last section. I was very tired, and I think that you might have missed some of the key points behind this very important topic: linearization. I decided to write down what I believe to be very important. I still will revise it tomorrow, or the next week though. 
+
+In typical surveying works we often run it situations where we need to use the least squares to adjust some nonlinear functions. You often see that in triangulation and traverse networks. In geodetic netowrks you also need to do least squares in nonlinear set of equations. In this section we are trying to get more intuitions about the use of least squares in nonlinear equations. 
+\begin{equation}
+AX = L,
+\end{equation}
+
+
+which is our old least squares equation. To see exactly when the \textit{nonlinearty} issue arises, let us see this example.
+
+
+\begin{align}
+\label{eqn:1}
+x + y - 2y^2 &= -4\\
+x^2 + y^2 &= 8\\
+3x^2 - y^2 &= 7.7.
+\end{align}
+
+and this example.
+
+\begin{align}
+\label{eqn:2}
+A x_a^2 + B x_a + C &= y_a + \upsilon_a\\
+A x_b^2 + B x_b + C &= y_b + \upsilon_b\\
+A x_c^2 + B x_c + C &= y_c + \upsilon_c\\
+A x_d^2 + B x_d + C &= y_d + \upsilon_d\\
+A x_e^2 + B x_e + C &= y_e + \upsilon_e.
+\end{align}
+
+How can you say either of \eqref{eqn:1} or \eqref{eqn:2} is linear. It solely depends on what you are trying to solve for. 
+\\
+So, basically in \eqref{eqn:1}, we are trying to solve for $x$, and $y$, and it is clear that they are not linearly related.  You cannot trait as if it is just a linear equation. In \eqref{eqn:2} however, we want to solve for $A,B$ and $C$. So, \eqref{eqn:1}, is nonlinear equation, and equation \eqref{eqn:2} is a linear one.
+
+\subsection{Taylor's series}
+
+
+
+\clearpage
+\addtocmark[2]{Author Index} % additional numbered TOC entry
+\renewcommand{\indexname}{Author Index}
+\printindex
+\clearpage
+\addtocmark[2]{Subject Index} % additional numbered TOC entry
+\markboth{Subject Index}{Subject Index}
+\renewcommand{\indexname}{Subject Index}
+\input{subjidx.tex}
+\end{document}
