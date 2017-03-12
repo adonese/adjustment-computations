@@ -2,7 +2,7 @@
 
 ## A few remarks about writing your report
 
-When you write a scientific paper there are a few considerations you should pay attention for. This note will not be about the *writing techniques* aspects, for that please consider this great (resource)[https://cgi.duke.edu/web/sciwriting/index.php?action=lesson1]. In this notes we rather consider discussing the structure of a scientific paper.
+When you write a scientific paper there are a few considerations you should pay attention for. This note will not be about the *writing techniques* aspects, for that please consider this great [resource](https://cgi.duke.edu/web/sciwriting/index.php?action=lesson1). In this notes we rather consider discussing the structure of a scientific paper.
 
 ## Introduction
 In your introduction section you are basically need to introduce the reader to your topic. It should be very short and precise. Again, you should only write about your topic, anything more than that would confuse the reader. In your work, write a very short--yet precise--introduction about the errors in surveying works (e.g., random error theory). You should also write about how can we reduce those errors. Some writers also describe the structure of their paper in the first section i.e., Section 2 describes `something`, etc.
@@ -37,6 +37,6 @@ You need to summarize your work on a few lines (should not exceed a page). You s
 You are highly encouraged to use LaTeX. The templates are only provided for LaTeX. You may also use LyX. LaTeX is installed on the department lab, you can use it however you want. If the lab is closed, please contact me to arrange some hours. You can also copy our installation to your own machine. If that does not work for you, try to use `sharelatex` or `overleaf`. You can use them to write your own LaTeX document online.
 # Templates
 
-All these templates are provided for LaTeX. You are not encouraged to use LyX, however you can find similar templates. There are a lot of templates for scientific writing e.g., for books, conference poster, etc. In our case, we want an article template. Almost all of the scientific fields have their own templates, and the journals have their own ones too. In our case, we want to use APS, `American Physical Standard`, as the name implies, it is for physics fields. Download APS template from (here)[https://www.sharelatex.com/templates/52fb899a34a287a85245b477/v/3/zip?name=APS]. Try to compile this package at your own, or in the next section we will go through that.
+All these templates are provided for LaTeX. You are not encouraged to use LyX, however you can find similar templates. There are a lot of templates for scientific writing e.g., for books, conference poster, etc. In our case, we want an article template. Almost all of the scientific fields have their own templates, and the journals have their own ones too. In our case, we want to use APS, `American Physical Standard`, as the name implies, it is for physics fields. Download APS template from [here](https://www.sharelatex.com/templates/52fb899a34a287a85245b477/v/3/zip?name=APS). Try to compile this package at your own, or in the next section we will go through that.
 
-You can view more templates from (sharelatex)[https://www.sharelatex.com/templates/journals] for more journals templates.
+You can view more templates from [sharelatex](https://www.sharelatex.com/templates/journals) for more journals templates.
